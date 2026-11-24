@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Grid and Compass</title>
+<meta name="description" content="Grid and Compass Ltd is a small London company. We're building Due, a reminder app for payments, and we run Castle Catalogue.">
+<meta name="theme-color" content="#F6F2E9">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='16' fill='%231E4D3A'/%3E%3Ccircle cx='32' cy='32' r='15' fill='none' stroke='%23F6F2E9' stroke-width='4'/%3E%3Cpath d='M32 19v26M19 32h26' stroke='%23F6F2E9' stroke-width='4' stroke-linecap='round'/%3E%3C/svg%3E">
+<style>
+@font-face { font-family: "Source Serif 4"; src: url("fonts/SourceSerif4_400Regular.woff2") format("woff2"); font-weight: 400; font-display: swap; }
+@font-face { font-family: "Source Serif 4"; src: url("fonts/SourceSerif4_600SemiBold.woff2") format("woff2"); font-weight: 600; font-display: swap; }
+@font-face { font-family: "Manrope"; src: url("fonts/Manrope_400Regular.woff2") format("woff2"); font-weight: 400; font-display: swap; }
+@font-face { font-family: "Manrope"; src: url("fonts/Manrope_600SemiBold.woff2") format("woff2"); font-weight: 600; font-display: swap; }
+
+/* Due's own design values (src/theme in the app). */
+:root {
+  --ink: #1F2A24;
+  --ink-muted: #4B5952;
+  --ink-faint: #646F69;
+  --forest: #1E4D3A;
+  --forest-pressed: #163A2B;
+  --forest-tint: rgba(30, 77, 58, 0.08);
+  --cream: #F6F2E9;
+  --oat: #ECE6D9;
+  --line: #D6CDBA;
+  --amber: #E3A23F;
+  --frosted: rgba(255, 255, 255, 0.6);
+  --frosted-line: rgba(255, 255, 255, 0.5);
+  --frosted-top: rgba(255, 255, 255, 0.95);
+  --shadow-frosted: 0 12px 32px rgba(31, 42, 36, 0.07);
+  --shadow-raised: 0 8px 24px rgba(31, 42, 36, 0.12);
+  --serif: "Source Serif 4", Georgia, serif;
+  --sans: "Manrope", system-ui, sans-serif;
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; }
+body {
+  margin: 0;
+  background: var(--cream);
+  color: var(--ink);
+  font: 400 1.0625rem/1.6 var(--sans);
+  font-feature-settings: "tnum" 0;
+}
+a { color: var(--forest); text-underline-offset: 0.18em; text-decoration-thickness: 1px; }
+a:hover { color: var(--forest-pressed); text-decoration-thickness: 2px; }
+:focus-visible { outline: 3px solid var(--forest); outline-offset: 3px; border-radius: 6px; }
+
+.page { max-width: 42rem; margin: 0 auto; padding: 2rem 1.5rem 3rem; }
+
+/* Wordmark */
+.mark { display: flex; align-items: center; gap: 0.625rem; text-decoration: none; color: var(--ink); width: fit-content; }
+.mark svg { width: 1.75rem; height: 1.75rem; flex: none; }
+.mark span { font: 600 1.125rem/1 var(--serif); letter-spacing: 0.005em; }
+
+/* Opening */
+.intro { padding: 4.5rem 0 3rem; }
+.intro h1 {
+  font: 600 clamp(2.125rem, 6vw, 3rem)/1.12 var(--serif);
+  letter-spacing: -0.012em;
+  margin: 0 0 1.25rem;
+  max-width: 18ch;
+}
+.intro p { margin: 0; color: var(--ink-muted); max-width: 34rem; font-size: 1.125rem; }
+
+/* Sections */
+section { padding: 2.75rem 0; border-top: 1px solid var(--line); }
+.head { display: flex; align-items: center; gap: 0.75rem; flex-wrap: wrap; margin-bottom: 0.75rem; }
+h2 { font: 600 1.75rem/1.2 var(--serif); margin: 0; letter-spacing: -0.006em; }
+section p { margin: 0 0 1rem; max-width: 36rem; }
+.muted { color: var(--ink-muted); }
+
+.chip {
+  display: inline-flex; align-items: center;
+  font: 600 0.8125rem/1 var(--sans);
+  padding: 0.4375rem 0.75rem;
+  border-radius: 999px;
+  background: var(--oat);
+  color: var(--ink);
+}
+.chip.soon { background: var(--amber); }
+
+/* The one bold thing: Due's reminders, as the app draws them */
+.stack { position: relative; margin: 2rem 0 1.75rem; display: grid; gap: 0.75rem; }
+.reminder {
+  display: grid; grid-template-columns: 2.5rem 1fr auto; align-items: center; gap: 0.875rem;
+  padding: 1rem 1.125rem;
+  background: var(--frosted);
+  border: 1px solid var(--frosted-line);
+  border-top-color: var(--frosted-top);
+  border-radius: 16px;
+  box-shadow: var(--shadow-frosted);
+}
+.reminder:first-child { box-shadow: var(--shadow-raised); background: rgba(255, 255, 255, 0.82); }
+.badge {
+  width: 2.5rem; height: 2.5rem; border-radius: 12px;
+  display: grid; place-items: center;
+  background: var(--forest-tint); color: var(--forest);
+}
+.badge svg { width: 1.25rem; height: 1.25rem; }
+.reminder .title { font: 600 1rem/1.35 var(--sans); font-variant-numeric: tabular-nums; }
+.reminder .text { font: 400 0.9375rem/1.4 var(--sans); color: var(--ink-muted); }
+.reminder .chip { justify-self: end; }
+
+@media (prefers-reduced-motion: no-preference) {
+  .reminder { animation: arrive 620ms cubic-bezier(0.2, 0.8, 0.2, 1) both; }
+  .reminder:nth-child(2) { animation-delay: 110ms; }
+  .reminder:nth-child(3) { animation-delay: 220ms; }
+  @keyframes arrive { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: none; } }
+}
+
+.facts { list-style: none; padding: 0; margin: 0 0 1.25rem; display: grid; gap: 0.5rem; max-width: 36rem; }
+.facts li { display: grid; grid-template-columns: 1.25rem 1fr; gap: 0.625rem; align-items: start; }
+.facts svg { width: 1.125rem; height: 1.125rem; margin-top: 0.28rem; color: var(--forest); }
+
+/* Buttons, Due's sizes */
+.button {
+  display: inline-flex; align-items: center; justify-content: center;
+  min-height: 3rem; padding: 0 1.375rem;
+  border-radius: 14px;
+  background: var(--forest); color: var(--cream);
+  font: 600 1rem/1 var(--sans); text-decoration: none;
+  box-shadow: 0 4px 16px rgba(31, 42, 36, 0.08);
+}
+.button:hover { background: var(--forest-pressed); color: var(--cream); }
+
+.contact { display: grid; gap: 0.25rem; }
+.contact a { font-weight: 600; }
+
+footer { border-top: 1px solid var(--line); padding-top: 2rem; margin-top: 0.75rem; color: var(--ink-faint); font-size: 0.875rem; line-height: 1.6; }
+footer p { margin: 0 0 0.75rem; max-width: 38rem; }
+
+@media (max-width: 30rem) {
+  .page { padding: 1.5rem 1.125rem 2.5rem; }
+  .intro { padding: 3rem 0 2.25rem; }
+  .reminder { grid-template-columns: 2.25rem 1fr; padding: 0.875rem 1rem; }
+  .badge { width: 2.25rem; height: 2.25rem; }
+  .reminder .chip { grid-column: 2; justify-self: start; margin-top: -0.25rem; }
+}
+</style>
+</head>
+<body>
+<div class="page">
+
+  <a class="mark" href="/" aria-label="Grid and Compass, home">
+    <svg viewBox="0 0 28 28" aria-hidden="true">
+      <rect width="28" height="28" rx="8" fill="#1E4D3A"/>
+      <circle cx="14" cy="14" r="6.5" fill="none" stroke="#F6F2E9" stroke-width="1.8"/>
+      <path d="M14 8.5v11M8.5 14h11" stroke="#F6F2E9" stroke-width="1.8" stroke-linecap="round"/>
+    </svg>
+    <span>Grid and Compass</span>
+  </a>
+
+  <main>
+    <div class="intro">
+      <h1>Know what's leaving your account before it goes.</h1>
+      <p>Grid and Compass is a small company in London. We're building Due, a reminder app for the payments people forget about, and we run Castle Catalogue.</p>
+    </div>
+
+    <section aria-labelledby="due">
+      <div class="head">
+        <h2 id="due">Due</h2>
+        <span class="chip">Coming soon</span>
+      </div>
+      <p>Due reminds you before a subscription renews, a free trial ends or a buy-now-pay-later instalment is taken, with time left to act.</p>
+
+      <div class="stack" role="img" aria-label="Three example reminders from Due: a free trial to cancel by tomorrow, a pay-in-three instalment in three days, and a gym that needs four working days' notice.">
+        <div class="reminder">
+          <div class="badge"><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="10" cy="10" r="7"/><path d="M10 6.5V10l2.5 1.5"/></svg></div>
+          <div><div class="title">£7.99 · Free trial</div><div class="text">Cancel by tomorrow if you don't want it.</div></div>
+          <span class="chip soon">Due soon</span>
+        </div>
+        <div class="reminder">
+          <div class="badge"><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="14" height="10" rx="2"/><path d="M3 8.5h14"/></svg></div>
+          <div><div class="title">£23.33 · Pay in 3, 2 of 3</div><div class="text">In 3 days. Check your balance.</div></div>
+          <span class="chip soon">Due soon</span>
+        </div>
+        <div class="reminder">
+          <div class="badge"><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 6.5v7M16 6.5v7M2.5 8.5v3M17.5 8.5v3M4 10h12"/></svg></div>
+          <div><div class="title">£34.00 · Gym membership</div><div class="text">Cancelling needs 4 working days' notice.</div></div>
+        </div>
+      </div>
+
+      <ul class="facts">
+        <li><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4.5 10.5l3.5 3.5 7.5-8"/></svg><span>Your list stays on your phone. No account, and no bank login.</span></li>
+        <li><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4.5 10.5l3.5 3.5 7.5-8"/></svg><span>Made for the UK, in pounds and on UK time.</span></li>
+        <li><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4.5 10.5l3.5 3.5 7.5-8"/></svg><span>Coming to Google Play for Android first.</span></li>
+      </ul>
+      <p><a href="/due/privacy/">Due privacy policy</a></p>
+    </section>
+
+    <section aria-labelledby="castle">
+      <div class="head"><h2 id="castle">Castle Catalogue</h2></div>
+      <p class="muted">Our online shop of wall furniture for cats.</p>
+      <!-- CASTLE_BUTTON: add <a class="button" href="STORE_URL">Visit our store</a> once the address is known -->
+    </section>
+
+    <section aria-labelledby="contact">
+      <div class="head"><h2 id="contact">Get in touch</h2></div>
+      <div class="contact">
+        <p>Product questions: <a href="mailto:support@gridandcompass.com">support@gridandcompass.com</a></p>
+        <p>Privacy questions: <a href="mailto:privacy@gridandcompass.com">privacy@gridandcompass.com</a></p>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p>Grid and Compass Ltd is a company registered in England and Wales, company number 17376527. Registered office: Suite Ra01, 195-197 Wood Street, London, E17 3NU, United Kingdom.</p>
+    <p>This site doesn't use cookies or tracking. <a href="/due/privacy/">Due privacy policy</a></p>
+    <p>© 2026 Grid and Compass Ltd</p>
+  </footer>
+
+</div>
+</body>
+</html>

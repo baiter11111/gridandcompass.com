@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Due privacy policy · Grid and Compass</title>
+<meta name="description" content="How the Due app and Grid and Compass Ltd handle personal information.">
+<meta name="theme-color" content="#F6F2E9">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='16' fill='%231E4D3A'/%3E%3Ccircle cx='32' cy='32' r='15' fill='none' stroke='%23F6F2E9' stroke-width='4'/%3E%3Cpath d='M32 19v26M19 32h26' stroke='%23F6F2E9' stroke-width='4' stroke-linecap='round'/%3E%3C/svg%3E">
+<style>
+@font-face { font-family: "Source Serif 4"; src: url("../../fonts/SourceSerif4_400Regular.woff2") format("woff2"); font-weight: 400; font-display: swap; }
+@font-face { font-family: "Source Serif 4"; src: url("../../fonts/SourceSerif4_600SemiBold.woff2") format("woff2"); font-weight: 600; font-display: swap; }
+@font-face { font-family: "Manrope"; src: url("../../fonts/Manrope_400Regular.woff2") format("woff2"); font-weight: 400; font-display: swap; }
+@font-face { font-family: "Manrope"; src: url("../../fonts/Manrope_600SemiBold.woff2") format("woff2"); font-weight: 600; font-display: swap; }
+
+/* Due's own design values (src/theme in the app). */
+:root {
+  --ink: #1F2A24;
+  --ink-muted: #4B5952;
+  --ink-faint: #646F69;
+  --forest: #1E4D3A;
+  --forest-pressed: #163A2B;
+  --forest-tint: rgba(30, 77, 58, 0.08);
+  --cream: #F6F2E9;
+  --oat: #ECE6D9;
+  --line: #D6CDBA;
+  --amber: #E3A23F;
+  --frosted: rgba(255, 255, 255, 0.6);
+  --frosted-line: rgba(255, 255, 255, 0.5);
+  --frosted-top: rgba(255, 255, 255, 0.95);
+  --shadow-frosted: 0 12px 32px rgba(31, 42, 36, 0.07);
+  --shadow-raised: 0 8px 24px rgba(31, 42, 36, 0.12);
+  --serif: "Source Serif 4", Georgia, serif;
+  --sans: "Manrope", system-ui, sans-serif;
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; }
+body {
+  margin: 0;
+  background: var(--cream);
+  color: var(--ink);
+  font: 400 1.0625rem/1.6 var(--sans);
+  font-feature-settings: "tnum" 0;
+}
+a { color: var(--forest); text-underline-offset: 0.18em; text-decoration-thickness: 1px; }
+a:hover { color: var(--forest-pressed); text-decoration-thickness: 2px; }
+:focus-visible { outline: 3px solid var(--forest); outline-offset: 3px; border-radius: 6px; }
+
+.page { max-width: 42rem; margin: 0 auto; padding: 2rem 1.5rem 3rem; }
+
+/* Wordmark */
+.mark { display: flex; align-items: center; gap: 0.625rem; text-decoration: none; color: var(--ink); width: fit-content; }
+.mark svg { width: 1.75rem; height: 1.75rem; flex: none; }
+.mark span { font: 600 1.125rem/1 var(--serif); letter-spacing: 0.005em; }
+
+/* Opening */
+.intro { padding: 4.5rem 0 3rem; }
+.intro h1 {
+  font: 600 clamp(2.125rem, 6vw, 3rem)/1.12 var(--serif);
+  letter-spacing: -0.012em;
+  margin: 0 0 1.25rem;
+  max-width: 18ch;
+}
+.intro p { margin: 0; color: var(--ink-muted); max-width: 34rem; font-size: 1.125rem; }
+
+/* Sections */
+section { padding: 2.75rem 0; border-top: 1px solid var(--line); }
+.head { display: flex; align-items: center; gap: 0.75rem; flex-wrap: wrap; margin-bottom: 0.75rem; }
+h2 { font: 600 1.75rem/1.2 var(--serif); margin: 0; letter-spacing: -0.006em; }
+section p { margin: 0 0 1rem; max-width: 36rem; }
+.muted { color: var(--ink-muted); }
+
+.chip {
+  display: inline-flex; align-items: center;
+  font: 600 0.8125rem/1 var(--sans);
+  padding: 0.4375rem 0.75rem;
+  border-radius: 999px;
+  background: var(--oat);
+  color: var(--ink);
+}
+.chip.soon { background: var(--amber); }
+
+/* The one bold thing: Due's reminders, as the app draws them */
+.stack { position: relative; margin: 2rem 0 1.75rem; display: grid; gap: 0.75rem; }
+.reminder {
+  display: grid; grid-template-columns: 2.5rem 1fr auto; align-items: center; gap: 0.875rem;
+  padding: 1rem 1.125rem;
+  background: var(--frosted);
+  border: 1px solid var(--frosted-line);
+  border-top-color: var(--frosted-top);
+  border-radius: 16px;
+  box-shadow: var(--shadow-frosted);
+}
+.reminder:first-child { box-shadow: var(--shadow-raised); background: rgba(255, 255, 255, 0.82); }
+.badge {
+  width: 2.5rem; height: 2.5rem; border-radius: 12px;
+  display: grid; place-items: center;
+  background: var(--forest-tint); color: var(--forest);
+}
+.badge svg { width: 1.25rem; height: 1.25rem; }
+.reminder .title { font: 600 1rem/1.35 var(--sans); font-variant-numeric: tabular-nums; }
+.reminder .text { font: 400 0.9375rem/1.4 var(--sans); color: var(--ink-muted); }
+.reminder .chip { justify-self: end; }
+
+@media (prefers-reduced-motion: no-preference) {
+  .reminder { animation: arrive 620ms cubic-bezier(0.2, 0.8, 0.2, 1) both; }
+  .reminder:nth-child(2) { animation-delay: 110ms; }
+  .reminder:nth-child(3) { animation-delay: 220ms; }
+  @keyframes arrive { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: none; } }
+}
+
+.facts { list-style: none; padding: 0; margin: 0 0 1.25rem; display: grid; gap: 0.5rem; max-width: 36rem; }
+.facts li { display: grid; grid-template-columns: 1.25rem 1fr; gap: 0.625rem; align-items: start; }
+.facts svg { width: 1.125rem; height: 1.125rem; margin-top: 0.28rem; color: var(--forest); }
+
+/* Buttons, Due's sizes */
+.button {
+  display: inline-flex; align-items: center; justify-content: center;
+  min-height: 3rem; padding: 0 1.375rem;
+  border-radius: 14px;
+  background: var(--forest); color: var(--cream);
+  font: 600 1rem/1 var(--sans); text-decoration: none;
+  box-shadow: 0 4px 16px rgba(31, 42, 36, 0.08);
+}
+.button:hover { background: var(--forest-pressed); color: var(--cream); }
+
+.contact { display: grid; gap: 0.25rem; }
+.contact a { font-weight: 600; }
+
+footer { border-top: 1px solid var(--line); padding-top: 2rem; margin-top: 0.75rem; color: var(--ink-faint); font-size: 0.875rem; line-height: 1.6; }
+footer p { margin: 0 0 0.75rem; max-width: 38rem; }
+
+@media (max-width: 30rem) {
+  .page { padding: 1.5rem 1.125rem 2.5rem; }
+  .intro { padding: 3rem 0 2.25rem; }
+  .reminder { grid-template-columns: 2.25rem 1fr; padding: 0.875rem 1rem; }
+  .badge { width: 2.25rem; height: 2.25rem; }
+  .reminder .chip { grid-column: 2; justify-self: start; margin-top: -0.25rem; }
+}
+
+.doc { padding: 3rem 0 1rem; }
+.doc h1 { font: 600 clamp(2rem, 5vw, 2.5rem)/1.15 var(--serif); letter-spacing: -0.01em; margin: 0 0 0.5rem; }
+.doc .updated { color: var(--ink-muted); margin: 0 0 2.25rem; }
+.prose h2 { font: 600 1.375rem/1.25 var(--serif); margin: 2.5rem 0 0.75rem; padding-top: 2rem; border-top: 1px solid var(--line); }
+.prose h3 { font: 600 1.0625rem/1.35 var(--sans); margin: 1.75rem 0 0.5rem; }
+.prose p, .prose ul { max-width: 38rem; margin: 0 0 1rem; }
+.prose ul { padding-left: 1.25rem; }
+.prose li { margin: 0 0 0.5rem; }
+.prose strong { font-weight: 600; }
+.back { display: inline-block; margin-top: 2.5rem; font-weight: 600; }
+</style>
+</head>
+<body>
+<div class="page">
+  <a class="mark" href="/" aria-label="Grid and Compass, home">
+    <svg viewBox="0 0 28 28" aria-hidden="true"><rect width="28" height="28" rx="8" fill="#1E4D3A"/><circle cx="14" cy="14" r="6.5" fill="none" stroke="#F6F2E9" stroke-width="1.8"/><path d="M14 8.5v11M8.5 14h11" stroke="#F6F2E9" stroke-width="1.8" stroke-linecap="round"/></svg>
+    <span>Grid and Compass</span>
+  </a>
+  <main class="doc">
+    <h1>Due privacy policy</h1>
+    <p class="updated">Last updated: 24 November 2026</p>
+    <div class="prose">
+<p>Due is an app that reminds you before money leaves your account. It is provided by Grid and Compass Ltd ("Grid and Compass", "we", "us"). We are the controller of the personal information described in this policy, which means we are responsible for it under UK data protection law.</p>
+<h2>The short version</h2>
+<ul>
+<li>What you add to Due is kept on your phone. We cannot see it. There is no account and no sign-up.</li>
+<li>If Android's backup is switched on for your phone, Android keeps a copy in your own Google account so that Due can be restored on a new phone. We cannot see that copy either.</li>
+<li>Reminders are made by your phone itself. Nothing is sent to us to make them work.</li>
+<li>If Due crashes, a crash report is sent to us so we can fix the fault. It does not contain anything you typed into Due.</li>
+<li>Usage statistics are off unless you say yes. They carry no ID and cannot be linked to you. You can change your mind at any time in Settings.</li>
+<li>We do not show adverts, and we do not sell or rent information to anyone.</li>
+<li>Due is for adults aged 18 and over.</li>
+</ul>
+<h2>Our contact details</h2>
+<p>Name: Grid and Compass Ltd  , a company registered in England and Wales with company number 17376527</p>
+<p>Address: Suite Ra01, 195-197 Wood Street, London, E17 3NU, United Kingdom</p>
+<p>E-mail: <a href="mailto:privacy@gridandcompass.com">privacy@gridandcompass.com</a></p>
+<p>We are a small company and are not required to have a data protection officer. Please use the e-mail address above for anything to do with your personal information.</p>
+<h2>The information involved</h2>
+<h3>Information that stays on your phone</h3>
+<p>When you use Due you add information such as:</p>
+<ul>
+<li>the payment plans, subscriptions, free trials and bills you want to track, with their names, amounts and dates;</li>
+<li>a label for how you pay (for example "Monzo card"). Due never asks for card numbers or bank details, so please do not type them in;</li>
+<li>your reminder settings and your payday;</li>
+<li>what you marked as paid, cancelled or skipped.</li>
+</ul>
+<p>Due also keeps, on your phone, a record of the reminders it has set and whether each one was shown. To tell you when a reminder might not reach you, it reads a few of your phone's settings: whether notifications are allowed, whether alarms and reminders are allowed, whether Android is restricting Due in the background, and when the phone last started.</p>
+<p>All of this is stored inside the Due app on your phone. Due does not send it to us or to anyone else, and we cannot see, read or recover it. The one copy that can exist elsewhere is Android's own backup, described below, which you control.</p>
+<h3>Reminders</h3>
+<p>Due's reminders are set with your phone's own alarm and notification system. Due does not use a push-messaging service, so no reminder passes through our servers or anyone else's.</p>
+<p>A reminder shows the name and the amount of the payment. It can appear on your lock screen. If you would rather it did not, you can hide notification content on the lock screen in your phone's settings.</p>
+<h3>Information we receive</h3>
+<ul>
+<li><strong>Crash and error reports.</strong> If Due crashes or hits an error, the app sends a report with: what went wrong and where in the app's code; Due's version; your phone's make, model and Android version; and the time. The report does not contain your name or anything you typed into Due.</li>
+<li><strong>Your IP address, briefly.</strong> Like anything sent over the internet, a crash report travels using your phone's IP address. Our crash-reporting provider's servers see that address in order to receive the report. We have set them not to store it, and we remove the approximate location (such as a city) that can be worked out from it.</li>
+<li><strong>Usage statistics, only if you say yes.</strong> Due then sends simple events, such as "item added", "reminder shown" or "marked as paid". An event can carry a plain fact that Due works out on your phone, such as "second item, added in the first week". The events never include names, amounts, dates or anything else you typed, and they carry no ID of any kind. Our statistics provider's servers see your phone's IP address when an event arrives and use it, for that day only, to count visits. They do not store it, and one day's events cannot be joined to another's.</li>
+<li><strong>If you contact us.</strong> Your e-mail address, your name if you give it, and whatever you choose to tell us.</li>
+<li><strong>If you help us test Due.</strong> Your name, the e-mail address you use to join the test on Google Play, and our notes of the feedback you give us.</li>
+</ul>
+<p>Due does not ask for access to your location, contacts, camera, microphone, photos or files. It asks for permission to send notifications and to set alarms and reminders; neither gives us any information about you. Due uses the internet only to send crash reports and, if you have said yes, usage statistics.</p>
+<h2>How we get your personal information and why we collect it</h2>
+<p>Most of the personal information we process is given to us directly by you, or sent automatically by the Due app on your phone, for one of these reasons:</p>
+<ul>
+<li>to find and fix crashes and errors, so that your reminders arrive reliably;</li>
+<li>to understand, in total, how Due is used, so that we can improve it (only if you have said yes to usage statistics);</li>
+<li>to reply when you contact us, and to deal with requests and complaints about your information;</li>
+<li>to run our closed test and learn from the people who agree to help us.</li>
+</ul>
+<p>We do not receive personal information about you from any other source. You do not have to give us any personal information to use Due. We do not make decisions about you by automated means, and we do not build a profile of you.</p>
+<h2>Who we share it with</h2>
+<p>We do not sell your information and we do not share it for advertising. We share it only with the companies that provide services to us. They may use it only on our instructions:</p>
+<ul>
+<li><strong>Sentry</strong> (Functional Software, Inc.) receives and stores crash and error reports.</li>
+<li><strong>Aptabase</strong> (Technov Solutions SRL, Romania) receives usage statistics, if you have said yes to them.</li>
+<li><strong>Google</strong> (Gmail, Google LLC, United States) stores e-mails you send us. They reach us through <strong>Namecheap</strong>'s e-mail forwarding (Namecheap, Inc., United States).</li>
+<li><strong>Brevo</strong> (Sendinblue SAS, France) sends our e-mail replies.</li>
+</ul>
+<p>We may also disclose information where the law requires us to.</p>
+<p>You download Due from Google Play. Google collects its own information about installs and, if you have agreed in your phone's settings, its own diagnostic data. Google is responsible for that information under its own privacy policy; we see only totals, not individuals.</p>
+<h2>Android's backup</h2>
+<p>Android can back up the data of the apps on your phone to your own Google account. If that backup is switched on for your phone, it includes what you added to Due, so your items come back when you install Due on a new phone.</p>
+<ul>
+<li>On phones running Android 9 or later with a screen lock set, Android encrypts this backup with your screen lock, so neither Google nor we can read it. Due allows the backup only when Android can encrypt it in this way.</li>
+<li>The backup is kept by Google under your Google account and Google's own privacy policy. We have no access to it.</li>
+<li>You control it in your phone's backup settings. Android keeps only the most recent copy, so after you change or delete things in Due, the next backup replaces the old one.</li>
+<li>When you move to a new phone with Android's own transfer, your Due data may be copied directly from one phone to the other.</li>
+</ul>
+<h2>Backup files you make yourself</h2>
+<p>If you use Export, Due creates a backup file on your phone and hands it to the app you choose, for example your files app, a cloud drive or e-mail. We never receive it. The file contains what you added to Due in a plain, readable form and is not encrypted, so keep it somewhere you trust. Wherever you send it, that service's own privacy policy applies.</p>
+<p>If you use Import, Due reads a backup file you pick from your phone. Nothing is sent anywhere.</p>
+<h2>Sending information outside the UK</h2>
+<p>Sentry stores crash reports in Germany. UK law recognises EU countries as giving adequate protection. Sentry staff in the United States may access reports to provide the service, under the safeguards described in our contract with Sentry.</p>
+<p>Aptabase stores usage statistics in Germany. UK law recognises EU countries as giving adequate protection.</p>
+<p>Brevo is based in France, which UK law also recognises as giving adequate protection.</p>
+<p>E-mails you send us are kept by Google in the United States. Google LLC is certified under the UK Extension to the EU-US Data Privacy Framework (the UK-US "data bridge"), which UK law recognises as giving adequate protection. They pass through Namecheap's e-mail forwarding in the United States on the way.</p>
+<h2>Our lawful bases</h2>
+<p>Under the UK General Data Protection Regulation (UK GDPR), the lawful bases we rely on are:</p>
+<p><strong>(f) We have a legitimate interest.</strong> We rely on this for crash and error reports (our interest is keeping Due reliable and fixing faults), for replying to people who contact us, and for running our closed test. We have checked that these uses are limited, expected and do not override your interests.</p>
+<p><strong>(a) Your consent.</strong> We rely on your consent for usage statistics. You can remove your consent at any time by switching usage statistics off in Settings, or by contacting us at the e-mail address above.</p>
+<p><strong>(c) We have a legal obligation.</strong> We rely on this when we deal with, and keep a record of, data protection requests and complaints.</p>
+<h2>Information stored on your phone by Due's tools</h2>
+<p>Due does not use cookies or advertising trackers.</p>
+<p>To send crash reports, the crash-reporting tool keeps a small amount of technical information on your phone, such as a report waiting to be sent. This is strictly necessary to detect technical faults in the app you asked for.</p>
+<p>Usage statistics are off unless you say yes when Due asks. If you say yes, Due keeps a few counters on your phone, such as the day it was installed, so that it can send a fact like "second item, added in the first week" without sending an ID. If you switch usage statistics off, Due stops sending them straight away.</p>
+<h2>How we store your personal information</h2>
+<p><strong>On your phone.</strong> What you add to Due is kept in the app's private storage, which other apps cannot read, and is protected by your phone's screen lock. You can remove it at any time with Settings, Delete all data, or by uninstalling Due. Deleting it also removes any reminders Due has set. If Android's backup is on, the copy in your Google account is replaced the next time Android backs up.</p>
+<p><strong>Crash and error reports</strong> are sent over an encrypted connection and securely stored by Sentry in Germany. Only the people who maintain Due can sign in to see them. We keep them for 30 days. Sentry then deletes them automatically.</p>
+<p><strong>Usage statistics</strong> are sent over an encrypted connection and stored by Aptabase in Germany for up to 5 years. Because they carry no ID, neither we nor Aptabase can tell which ones came from your phone, so one person's statistics cannot be picked out or deleted. Switching them off stops any more being sent.</p>
+<p><strong>E-mails.</strong> We keep messages you send us for 12 months after our last reply, and records of data protection requests and complaints for 2 years. We then delete them from our mailbox.</p>
+<p><strong>Tester details.</strong> We keep closed-test contact details and feedback notes until 3 months after the test ends, then delete them.</p>
+<h2>Links to other apps and websites</h2>
+<p>Due can open another company's app or website for you, for example to make a payment or cancel a subscription. The link opens in your own browser or in Google Play. Due sends nothing about you when it opens the link. Once you are there, that company's own privacy policy applies. We are not connected to the companies whose services you track in Due, and the cancellation steps Due shows are taken from those companies' own public pages.</p>
+<h2>Children</h2>
+<p>Due is intended for adults aged 18 and over. We do not knowingly collect personal information from children.</p>
+<h2>Your data protection rights</h2>
+<p>Under data protection law, you have rights including:</p>
+<p><strong>Your right of access.</strong> You have the right to ask us for copies of your personal information.</p>
+<p><strong>Your right to rectification.</strong> You have the right to ask us to correct personal information you think is inaccurate, and to complete information you think is incomplete.</p>
+<p><strong>Your right to erasure.</strong> You have the right to ask us to erase your personal information in certain circumstances.</p>
+<p><strong>Your right to restriction of processing.</strong> You have the right to ask us to restrict the processing of your personal information in certain circumstances.</p>
+<p><strong>Your right to object to processing.</strong> You have the right to object to the processing of your personal information where we rely on a legitimate interest.</p>
+<p><strong>Your right to data portability.</strong> You have the right to ask that we transfer the personal information you gave us to another organisation, or to you, in certain circumstances. This right applies only where we rely on your consent or on a contract with you.</p>
+<p><strong>Your right to withdraw consent.</strong> Where we rely on your consent, you can withdraw it at any time.</p>
+<p><strong>What this means in practice.</strong> The information you add to Due is already in your hands: you can see it, change it, export it and delete it in the app, and we hold no copy. Crash reports and usage statistics are not linked to your name or e-mail address, so we usually cannot tell which ones came from your phone. If you can give us information that lets us find them, we will act on your request.</p>
+<p>You are not required to pay any charge for exercising your rights. If you make a request, we have one month to respond to you.</p>
+<p>Please contact us at <a href="mailto:privacy@gridandcompass.com">privacy@gridandcompass.com</a> if you wish to make a request.</p>
+<h2>How to complain</h2>
+<p>If you have any concerns about our use of your personal information, you can make a complaint to us at <a href="mailto:privacy@gridandcompass.com">privacy@gridandcompass.com</a>. We will acknowledge your complaint within 30 days, look into it without undue delay, keep you informed and tell you the outcome.</p>
+<p>You can also complain to the ICO if you are unhappy with how we have used your data.</p>
+<p>The ICO's address:<br />
+Information Commissioner's Office<br />
+Wycliffe House<br />
+Water Lane<br />
+Wilmslow<br />
+Cheshire<br />
+SK9 5AF</p>
+<p>Helpline number: 0303 123 1113</p>
+<p>ICO website: <a href="https://ico.org.uk">ico.org.uk</a></p>
+<h2>Changes to this policy</h2>
+<p>We will update this policy whenever Due changes how it handles information, for example if we add accounts or online backup. The date at the top shows when it was last updated. If a change is significant, we will tell you in the app before it takes effect.</p>
+    </div>
+    <a class="back" href="/">Back to Grid and Compass</a>
+  </main>
+  <footer>
+    <p>Grid and Compass Ltd is a company registered in England and Wales, company number 17376527. Registered office: Suite Ra01, 195-197 Wood Street, London, E17 3NU, United Kingdom.</p>
+    <p>© 2026 Grid and Compass Ltd</p>
+  </footer>
+</div>
+</body>
+</html>
